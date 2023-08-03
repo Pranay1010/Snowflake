@@ -1,0 +1,26 @@
+-- Creating a user
+CREATE USER USER_1
+PASSWORD = 'my_password';
+
+-- Creating a warehouse
+CREATE WAREHOUSE IF NOT EXISTS PRANAY_DB_DEV
+   WAREHOUSE_SIZE = 'XSMALL'
+   WAREHOUSE_TYPE = 'STANDARD'
+   AUTO_SUSPEND = 300
+   AUTO_RESUME = TRUE
+   MIN_CLUSTER_COUNT = 1
+   MAX_CLUSTER_COUNT = 1
+   SCALING_POLICY = 'STANDARD'
+   COMMENT = 'Extra Small Warehouse';
+
+-- Creating a role
+CREATE ROLE PRIMARY_ROLE;
+
+-- Creating a database
+CREATE DATABASE USER_DB_DEV;
+
+-- Creating a schema employee data
+CREATE SCHEMA USER_DB_DEV.EMPLOYEE_DATA WITH MANAGED ACCESS;
+
+-- Creating a schema sales data
+CREATE SCHEMA USER_DB_DEV.SALES_DATA WITH MANAGED ACCESS;
